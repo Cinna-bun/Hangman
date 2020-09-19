@@ -56,12 +56,7 @@ public class Hangman {
             return false;
         }
 
-        //if they've not already guessed the letter, then add it to the list
-        if (!this.guessList.contains(letter)) {
-            this.guessList += letter + ", ";
-        } else {
-            this.numGuesses++;
-        }
+
 
         //decrement the number of guesses remaining
         this.numGuesses--;
@@ -71,7 +66,12 @@ public class Hangman {
         if (this.word.contains(letter.toLowerCase())) {
             return true;
         } else {
-
+            //if they've not already guessed the letter, then add it to the list
+            if (!this.guessList.contains(letter)) {
+                this.guessList += letter + ", ";
+            } else {
+                this.numGuesses++;
+            }
             return false;
         }
     } //makeGuess
