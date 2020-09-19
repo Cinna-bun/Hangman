@@ -26,18 +26,23 @@ public class HangmanWindow implements ActionListener {
     * then sets up the frame and inputs
      */
     HangmanWindow() {
+        //initialize the Hangman object
         game = new Hangman();
 
+        //initialize the frame
         frame = new JFrame();
 
+        //initialize our jlables
         hiddenWord = new JLabel(game.getRevealedWord());
         numLives = new JLabel("You have 10 guesses left");
         errorMsg = new JLabel(" ");
         guessList = new JLabel("You have not made any guesses yet.");
 
+        //initialize our text input and add the actionlistener
         textField = new JTextField("", 1);
         textField.addActionListener(this);
 
+        //initialize our panel and add all the previous elements
         panel = new JPanel();
         panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
         panel.setLayout(new GridLayout(0, 1));
@@ -48,7 +53,7 @@ public class HangmanWindow implements ActionListener {
         panel.add(errorMsg);
 
 
-
+        //finally we initialize our frame
         frame.add(panel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Hangman");
